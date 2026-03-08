@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dqwt3bn7bb34l"]
+
+[ext_resource type="Script" uid="uid://ces6em7hlf0t6" path="res://Interaction/DungeonGate.gd" id="1_r3h8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gglcs"]
+
+[node name="DungeonGate" type="Area2D" unique_id=2113918311]
+collision_layer = 2
+script = ExtResource("1_r3h8l")
+require_input = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=30984074]
+shape = SubResource("RectangleShape2D_gglcs")
+one_way_collision = true

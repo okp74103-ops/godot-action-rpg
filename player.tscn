@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://bbhybcqqtdf7g"]
+
+[ext_resource type="Script" uid="uid://bs5vegtdhhkfq" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://cgcxnitu2675r" path="res://ui/스킨/22.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://dbubdribeun1x" path="res://ui/스킨/55.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://cawojt4my7ke8" path="res://ui/스킨/44.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://c0n4vo4e1eon8" path="res://ui/스킨/33.png" id="5_dw050"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2hs0m")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1jxqw")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dw050")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "idle_back"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer:current_animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_2hs0m"]
+resource_name = "idle_front"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/Body:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_1jxqw"]
+resource_name = "idle_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/Body:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_dw050"]
+resource_name = "idle_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/Body:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b26j0"]
+_data = {
+&"idle_back": SubResource("Animation_sweqy"),
+&"idle_front": SubResource("Animation_2hs0m"),
+&"idle_left": SubResource("Animation_1jxqw"),
+&"idle_right": SubResource("Animation_dw050")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=2141574976 groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="VisualRoot" type="Node2D" parent="." unique_id=582744996]
+position = Vector2(0, -20)
+
+[node name="Body" type="AnimatedSprite2D" parent="VisualRoot" unique_id=1588892948]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_b26j0")
+animation = &"idle_right"
+
+[node name="Weapon" type="AnimatedSprite2D" parent="VisualRoot" unique_id=1171040851]
+
+[node name="Armor" type="AnimatedSprite2D" parent="VisualRoot" unique_id=493193298]
+
+[node name="Helmet" type="AnimatedSprite2D" parent="VisualRoot" unique_id=2083417660]
+
+[node name="Effect" type="AnimatedSprite2D" parent="VisualRoot" unique_id=187208117]
+
+[node name="CharacterBody2D" type="CollisionShape2D" parent="." unique_id=2052845610]
+shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="CombatPivot" type="Node2D" parent="." unique_id=442821243]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=712146137]
+zoom = Vector2(1.1, 1.1)
+limit_enabled = false
+limit_left = -50
+limit_top = -50
+limit_right = 3890
+limit_bottom = 2450
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1131328647]
+libraries/ = SubResource("AnimationLibrary_b26j0")
+movie_quit_on_finish = true

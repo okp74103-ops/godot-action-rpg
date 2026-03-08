@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ukclcu2kak20"]
+
+[ext_resource type="PackedScene" uid="uid://c0bifbjxjaih8" path="res://World/dungeon_1.tscn" id="1_ig7tw"]
+
+[sub_resource type="GDScript" id="GDScript_7dm0k"]
+script/source = "extends Node
+
+@onready var game_manager = $GameManager
+@onready var world_root = $WorldRoot
+
+func _ready():
+	game_manager.register_world_root(world_root)
+	game_manager.change_scene(\"res://Village.tscn\")
+"
+
+[node name="Main" type="Node" unique_id=1125967583]
+script = SubResource("GDScript_7dm0k")
+
+[node name="GameManager" type="Node" parent="." unique_id=649853496]
+
+[node name="WorldRoot" type="Node" parent="." unique_id=1949561586]
+
+[node name="dungeon_base2" parent="." unique_id=288636623 instance=ExtResource("1_ig7tw")]

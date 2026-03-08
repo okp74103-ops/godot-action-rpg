@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dtb31nwron1r0"]
+
+[ext_resource type="Script" uid="uid://bty7jrrphi0d3" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="PackedScene" uid="uid://dkh7jc154fx3t" path="res://status_ui.tscn" id="2_64ctp"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1188588593]
+script = ExtResource("1_37p78")
+
+[node name="HP_Bar" type="ProgressBar" parent="." unique_id=1688685150]
+anchors_preset = -1
+anchor_left = 0.47400004
+anchor_top = 0.82800007
+anchor_right = 0.48100004
+anchor_bottom = 0.82800007
+offset_left = -524.04803
+offset_top = -3.5440674
+offset_right = 531.88794
+offset_bottom = 52.455933
+max_value = 500.0
+step = 1.0
+value = 500.0
+show_percentage = false
+
+[node name="Q_CD" type="ProgressBar" parent="." unique_id=186047419]
+anchors_preset = -1
+anchor_left = 0.036000002
+anchor_top = 0.78400004
+anchor_right = 0.036000002
+anchor_bottom = 0.78400004
+offset_left = -20.472004
+offset_top = -20.032013
+offset_right = 19.527996
+offset_bottom = 19.967987
+max_value = 3.0
+
+[node name="Dash_CD" type="ProgressBar" parent="." unique_id=341533689]
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.78200006
+anchor_right = 0.079
+anchor_bottom = 0.78200006
+offset_left = -26.008003
+offset_top = -21.736053
+offset_right = 24.991997
+offset_bottom = 22.263947
+max_value = 2.0
+
+[node name="skill_dash" type="ProgressBar" parent="." unique_id=2095419447]
+anchors_preset = -1
+anchor_left = 0.12200001
+anchor_top = 0.78200006
+anchor_right = 0.12200001
+anchor_bottom = 0.78200006
+offset_left = -20.544006
+offset_top = -21.736053
+offset_right = 21.455994
+offset_bottom = 22.263947
+max_value = 3.0
+
+[node name="EXPBar" type="ProgressBar" parent="." unique_id=1572146131]
+anchors_preset = -1
+anchor_left = 0.48000002
+anchor_top = 0.94100004
+anchor_right = 0.48000002
+anchor_bottom = 0.94100004
+offset_left = -528.96
+offset_top = -13.768005
+offset_right = 528.04
+offset_bottom = 13.231995
+
+[node name="StatusUI" parent="." unique_id=785618386 instance=ExtResource("2_64ctp")]

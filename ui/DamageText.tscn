@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dps3grtqbvdjd"]
+
+[ext_resource type="Script" uid="uid://cush2e7bfmoe4" path="res://ui/DamageText.tscn.gd" id="1_kl3gj"]
+
+[node name="DamageText" type="Label" unique_id=219842165]
+script = ExtResource("1_kl3gj")

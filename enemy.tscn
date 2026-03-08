@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bg8wc70042fga"]
+
+[ext_resource type="Script" uid="uid://cer7p0nei2dk4" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://dyfo87gdrcjjn" path="res://ui/스킨/ChatGPT Image 2026년 3월 2일 오후 10_02_24.png" id="2_4gyqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gyqm"]
+bg_color = Color(0.078431375, 0.05882353, 0.6, 1)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2010307099]
+collision_layer = 2
+script = ExtResource("1_4gyqm")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19480232]
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1144033601]
+position = Vector2(20, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_4gyqm")
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=579999461]
+z_index = 20
+offset_left = 5.0
+offset_top = -17.0
+offset_right = 35.0
+offset_bottom = -13.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_4gyqm")
+max_value = 180.0
+value = 180.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
