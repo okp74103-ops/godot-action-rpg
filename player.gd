@@ -55,6 +55,8 @@ var skill_dash_travel := 0.0
 var skill_dash_cd_timer := 0.0
 var data
 var stats := PlayerStats.new()
+var DamageTextScene = preload("res://ui/DamageText.tscn")
+var dmg = DamageTextScene.instantiate()
 
 signal q_cd_changed(value)
 signal hp_changed(value, max_value)
@@ -435,13 +437,14 @@ func _update_facing(dir: Vector2):
 
 
 func show_damage(amount):
-	var dmg_scene = load("res://ui/DamageText.tscn")
-	var dmg = dmg_scene.instantiate()
 
-	dmg.text = str(int(amount))
-	dmg.global_position = global_position + Vector2(0, -40)
+	var dmg_scene = preload("res://ui/DamageText.tscn")
+	var dmg_text = dmg_scene.instantiate()
 
-	get_tree().current_scene.add_child(dmg)
+	dmg_text.text = str(int(amount))
+	dmg_text.global_position = global_position + Vector2(0, -40)
+
+	get_tree().current_scene.add_child(dmg_text)
 
 
 func gain_exp(amount: int):
@@ -508,14 +511,23 @@ func add_data_VIT():
 	
 func recalculate_stats():
 
+	stats.setup(data)
+
+	var old_max = get_max_hp()
+
 	base_attack = 10
 	move_speed = stats.get_move_speed(180)
 	base_max_hp = 100
 
-	if hp > get_max_hp():
-		hp = get_max_hp()
+	var new_max = get_max_hp()
 
-	hp_changed.emit(hp, get_max_hp())
+	if new_max > old_max:
+		hp += new_max - old_max
+
+	if hp > new_max:
+		hp = new_max
+
+	hp_changed.emit(hp, new_max)
 	
 
 	
