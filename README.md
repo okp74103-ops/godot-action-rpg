@@ -12,13 +12,15 @@ A small action RPG prototype built with Godot 4.
 - HUD and status UI
 - GameManager for global game state handling
 
+
 ## Controls
 
-- Move: WASD or Arrow Keys
-- Dash: Space
-- Skill Dash Attack: Q
-- Interact: E
-- Open Status UI: Tab
+- Move — WASD / Arrow Keys
+- Dash — Space
+- Dash Attack — Shift
+- Area Skill Attack — Q
+- Interact — E
+- Status UI — C
 
 ## Project Structure
 
