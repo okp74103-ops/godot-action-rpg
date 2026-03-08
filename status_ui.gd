@@ -50,37 +50,24 @@ func _ready():
 
 func _on_str_add_pressed():
 
-	if GameManager.player_data.stat_points <= 0:
+	if player == null:
 		return
+	player.add_data_STR()
 
-	GameManager.player_data.STR += 1
-	GameManager.player_data.stat_points -= 1
-
-
-	update_stats()
-	update_points(GameManager.player_data.stat_points)
-	
 func _on_dex_add_pressed():
 
-	if player.stat_points <= 0:
+	if player == null:
 		return
 
-	GameManager.player_data.DEX += 1
-	GameManager.player_data.stat_points -= 1
+	player.add_data_DEX()
 
-	player.DEX = GameManager.player_data.DEX
-	player.stat_points = GameManager.player_data.stat_points
 
-	update_stats()
-	update_points(player.stat_points)
+
+
 	
 func _on_vit_add_pressed():
 
-	if player.stat_points <= 0:
+	if player == null:
 		return
 
-	GameManager.player_data.VIT += 1
-	GameManager.player_data.stat_points -= 1
-
-	player.VIT = GameManager.player_data.VIT
-	player.stat_points = GameManager.player_data.stat_points
+	player.add_data_VIT()
