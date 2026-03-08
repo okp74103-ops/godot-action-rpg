@@ -1,7 +1,6 @@
 # Godot Action RPG Prototype
 
-This project is a small action RPG prototype built with Godot 4.  
-It was developed as a learning project focused on implementing core RPG systems and scene structure.
+A small action RPG prototype built with Godot 4.
 
 ## Features
 
@@ -12,6 +11,14 @@ It was developed as a learning project focused on implementing core RPG systems 
 - Dungeon and village scenes
 - HUD and status UI
 - GameManager for global game state handling
+
+## Controls
+
+- Move: WASD or Arrow Keys
+- Dash: Space
+- Skill Dash Attack: Q
+- Interact: E
+- Open Status UI: Tab
 
 ## Project Structure
 
